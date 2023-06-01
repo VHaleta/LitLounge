@@ -4,31 +4,50 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - LitLounge</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LitLounge.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LitLounge</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+    <header class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container" bis_skin_checked="1">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LitLounge</a>
+            <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+                <a class="navbar-tool" style="padding-left: 10px;" href="#">
+                    <div class="navbar-tool-icon-box"><img src="~/lib/icons/person.svg" alt="Account" width="32" height="32"></div>
+                </a>
             </div>
-        </nav>
+            <div class="collapse navbar-collapse" id="navbarColor03" bis_skin_checked="1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Advanced search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/VHaleta/LitLounge">GitHub</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Popular genres</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Fantasy</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Sci-Fi</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Mystery</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Romance</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Horror</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" asp-action="Search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -38,7 +57,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - LitLounge - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - LitLounge
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
