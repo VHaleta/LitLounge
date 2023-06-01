@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Search";
+}
+@Html.Partial("_Navbar")
+<form class="row g-3" style="margin-top:50px">
+    <div class="col-md-4">
+        <label for="inputEmail4" class="form-label">Name</label>
+        <input type="email" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-4">
+        <label for="inputPassword4" class="form-label">Author</label>
+        <input type="password" class="form-control" id="inputPassword4">
+    </div>
+    <div class="col-md-4">
+        <label for="inputPassword4" class="form-label">IBN</label>
+        <input type="password" class="form-control" id="inputPassword4">
+    </div>
+    <div class="col-md-2">
+        <label for="inputPassword4" class="form-label">Pages</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="From">
+        <input type="password" class="form-control" id="inputPassword4" placeholder="To">
+    </div>
+    <div class="col-md-2">
+        <label for="inputPassword4" class="form-label">Year</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="From">
+        <input type="password" class="form-control" id="inputPassword4" placeholder="To">
+    </div>
+    <div class="col-md-4">
+        <label for="inputState" class="form-label">Genre</label>
+        <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+        </select>
+    </div>
+    <div class="col-md-4" style="display:flex; align-items: center;">
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:10px">Search</button>
+    </div>
+</form>
+<table class="table" style="margin-top:50px">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < 15; i++)
+        {
+            <tr>
+                <th scope="row" style="width: 20%"><img class="rounded table-img" src="https://book-ye.com.ua/upload/resize_cache/iblock/0c8/520_860_1/30607952_c4d8_11ed_8186_0050568ef5e6_f9440cf5_c4d8_11ed_8186_0050568ef5e6.jpg" alt="..." /></th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td class="table-20">
+                    <div class="pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Go to book's page</a></div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

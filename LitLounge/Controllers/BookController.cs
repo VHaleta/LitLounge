@@ -8,5 +8,10 @@ namespace LitLounge.Controllers
         {
             return View();
         }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
     }
 }

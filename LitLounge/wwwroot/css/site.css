@@ -20,3 +20,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.table-img{
+    height: 100px;
+}
+
+.table-20{
+
+}
+
+td {
+    vertical-align: middle;
+    padding: 12px;
+}
