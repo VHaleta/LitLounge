@@ -1,4 +1,6 @@
-﻿using LitLounge.Models;
+﻿using LitLounge.Constants;
+using LitLounge.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace LitLounge
@@ -16,8 +18,13 @@ namespace LitLounge
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddControllersWithViews();
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
+            services.AddControllersWithViews();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => options.LoginPath = new PathString("/Account/Login"));
+            services.AddAuthorization(options => 
+                options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Role", UserRoleNames.Admin)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +45,7 @@ namespace LitLounge
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

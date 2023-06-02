@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LitLounge.Models
+namespace LitLounge.ViewModels
 {
-    public class User
+    public class LoginViewModel
     {
-        [Key]
-        public int Id { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-        public string Role { get; set; }
     }
 }
