@@ -1,4 +1,5 @@
-﻿using LitLounge.Helpers;
+﻿using LitLounge.Constants;
+using LitLounge.Helpers;
 using LitLounge.Models;
 
 namespace LitLounge
@@ -13,6 +14,7 @@ namespace LitLounge
                 new User() {
                     Email = "admin@gmail.com",
                     Password = Encrypter.Encrypt("admin"),
+                    Role = UserRoleNames.Admin
                 }
                 );
             context.SaveChanges();

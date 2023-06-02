@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LitLounge.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230602132736_MyMigr")]
+    [Migration("20230602134727_InitialMigration")]
     partial class MyMigr
     {
         /// <inheritdoc />
