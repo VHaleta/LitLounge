@@ -5,8 +5,10 @@
 @{
     ViewData["Title"] = "Login";
 }
+@Html.Partial("_Navbar")
+
 <div class="d-flex justify-content-center text-center">
-    <div style="width: 350px; position:relative; margin-top:200px;">
+    <div style="width: 350px; position:relative; margin-top:150px;">
         <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
             <div>
                 <div class="form-group">

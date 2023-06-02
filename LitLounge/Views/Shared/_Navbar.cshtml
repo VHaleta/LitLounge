@@ -1,7 +1,11 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using System.Security.Claims;
+
 @{
+    var claim = User.Claims.FirstOrDefault(x => x.Type == ClaimsIdentity.DefaultNameClaimType);
+    string userEmail = claim?.Value ?? "";
 }
 <header class="navbar navbar-expand-lg navbar-light shadow-sm">
     <div class="container" bis_skin_checked="1">
@@ -10,9 +14,19 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-tool" style="padding-left: 10px;" href="#">
-                <div class="navbar-tool-icon-box"><img src="~/lib/icons/person.svg" alt="Account" width="32" height="32"></div>
-            </a>
+            <span class="navbar-text" style="margin-left:10px">@userEmail</span>
+            @if (String.IsNullOrEmpty(userEmail))
+            {
+                <a class="navbar-tool" style="padding-left: 10px;" asp-area="" asp-controller="Account" asp-action="Login">
+                    <div class="navbar-tool-icon-box"><img src="~/lib/icons/person-add.svg" alt="Account" width="32" height="32"></div>
+                </a>
+            }
+            else
+            {
+                <a class="navbar-tool" style="padding-left: 10px;" asp-area="" asp-controller="Account" asp-action="Logout">
+                    <div class="navbar-tool-icon-box"><img src="~/lib/icons/person-dash.svg" alt="Account" width="32" height="32"></div>
+                </a>
+            }
         </div>
         <div class="collapse navbar-collapse" id="navbarColor03" bis_skin_checked="1">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -20,7 +34,7 @@
                     <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Advanced search</a>
+                    <a class="nav-link" asp-area="" asp-controller="Book" asp-action="Search">Advanced search</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://github.com/VHaleta/LitLounge">GitHub</a>
@@ -28,16 +42,16 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Popular genres</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Fantasy</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Sci-Fi</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Mystery</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Romance</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Horror</a></li>
+                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Fantasy</a></li>
+                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Sci-Fi</a></li>
+                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Mystery</a></li>
+                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Romance</a></li>
+                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Horror</a></li>
                     </ul>
                 </li>
             </ul>
             <form class="d-flex" role="search" asp-action="Search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Search Book" aria-label="Search">
                 <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
         </div>

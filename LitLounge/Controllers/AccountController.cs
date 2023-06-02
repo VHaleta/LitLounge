@@ -42,7 +42,7 @@ namespace LitLounge.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "Incorrect login and (or) password");
+                ModelState.AddModelError("Password", "Incorrect login and (or) password");
             }
             return View(model);
         }
@@ -63,21 +63,25 @@ namespace LitLounge.Controllers
             {
                 return View(model);
             }
+
             User user = await context.Users.FirstOrDefaultAsync(x => x.Email == model.Email);
             if (user != null)
             {
                 ModelState.AddModelError("Email", "User with this email already exists");
                 return View(model);
             }
+
             user = new User()
             {
                 Email = model.Email,
                 Password = Encrypter.Encrypt(model.Password),
                 Role = UserRoleNames.User
             };
+
             context.Users.Add(user);
             context.SaveChanges();
             await Authenticate(user);
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -95,10 +99,10 @@ namespace LitLounge.Controllers
         }
 
         [Route("~/Logout")]
-        private async Task<IActionResult> Logout()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
