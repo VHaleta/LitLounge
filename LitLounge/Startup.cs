@@ -19,12 +19,13 @@ namespace LitLounge
         {
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
-            services.AddControllersWithViews();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => options.LoginPath = new PathString("/Account/Login"));
             services.AddAuthorization(options => 
                 options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Role", UserRoleNames.Admin)));
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

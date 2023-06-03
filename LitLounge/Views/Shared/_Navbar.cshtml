@@ -2,7 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @using System.Security.Claims;
-
+@model LitLounge.ViewModels.SearchViewModel
 @{
     var claim = User.Claims.FirstOrDefault(x => x.Type == ClaimsIdentity.DefaultNameClaimType);
     string userEmail = claim?.Value ?? "";
@@ -42,16 +42,17 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Popular genres</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Fantasy</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Sci-Fi</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Mystery</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Romance</a></li>
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Book" asp-action="Search">Horror</a></li>
+                        <li>@Html.ActionLink("Fantasy", "Search", "Book", new { genre = "Fantasy" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Adventure", "Search", "Book", new { genre = "Adventure" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Sci-Fi", "Search", "Book", new { genre = "Science Fiction" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Mystery", "Search", "Book", new { genre = "Mystery" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Romance", "Search", "Book", new { genre = "Romance" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Horror", "Search", "Book", new { genre = "Horror" }, new { @class="dropdown-item" })</li>
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" role="search" asp-action="Search">
-                <input class="form-control me-2" type="search" placeholder="Search Book" aria-label="Search">
+            <form class="d-flex" asp-action="Search" asp-controller="Book">
+                <input asp-for="BookName" class="form-control me-2" type="search" placeholder="Search Book" aria-label="Search">
                 <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
         </div>

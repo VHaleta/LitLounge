@@ -7,12 +7,9 @@ namespace LitLounge.ViewModels
 {
     public class SearchViewModel
     {
-        [AllowNull]
-        public string Name { get; set; }
-        [AllowNull]
-        public string Author { get; set; }
-        [AllowNull]
-        public string ISBN { get; set; }
+        public string? BookName { get; set; }
+        public string? Author { get; set; }
+        public string? ISBN { get; set; }
         [Range(0, int.MaxValue)]
         public int PagesFrom { get; set; }
         [Range(0, int.MaxValue)]
@@ -21,7 +18,7 @@ namespace LitLounge.ViewModels
         public int YearFrom { get; set; }
         [Range(0, int.MaxValue)]
         public int YearTo { get; set; }
-        public string Genre { get; set; } = string.Empty;
+        public string? Genre { get; set; } = "Any";
         public List<Book> Books { get; set; } = new List<Book>();
     }
 }
