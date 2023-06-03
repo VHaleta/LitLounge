@@ -1,41 +1,49 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model LitLounge.ViewModels.SearchViewModel
 @{
     ViewData["Title"] = "Search";
 }
 @Html.Partial("_Navbar")
-<form class="row g-3" style="margin-top:50px">
+<form asp-action="Search" asp-controller="Book" class="row g-3" style="margin-top:50px">
     <div class="col-md-4">
-        <label for="inputEmail4" class="form-label">Name</label>
-        <input type="email" class="form-control" id="inputEmail4">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="col-md-4">
-        <label for="inputPassword4" class="form-label">Author</label>
-        <input type="password" class="form-control" id="inputPassword4">
+        <label asp-for="Author" class="form-label">Author</label>
+        <input asp-for="Author" class="form-control">
+        <span asp-validation-for="Author" class="text-danger"></span>
     </div>
     <div class="col-md-4">
-        <label for="inputPassword4" class="form-label">ISBN</label>
-        <input type="password" class="form-control" id="inputPassword4">
+        <label asp-for="ISBN" class="form-label">ISBN</label>
+        <input asp-for="ISBN" class="form-control">
+        <span asp-validation-for="ISBN" class="text-danger"></span>
     </div>
     <div class="col-md-2">
-        <label for="inputPassword4" class="form-label">Pages</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="From">
-        <input type="password" class="form-control" id="inputPassword4" placeholder="To">
+        <label asp-for="PagesFrom" class="form-label">Pages</label>
+        <input asp-for="PagesFrom" class="form-control" placeholder="From">
+        <span asp-validation-for="PagesFrom" class="text-danger"></span>
+        <input asp-for="PagesTo" class="form-control" placeholder="To">
+        <span asp-validation-for="PagesTo" class="text-danger"></span>
     </div>
     <div class="col-md-2">
-        <label for="inputPassword4" class="form-label">Year</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="From">
-        <input type="password" class="form-control" id="inputPassword4" placeholder="To">
+        <label asp-for="YearFrom" class="form-label">Year</label>
+        <input asp-for="YearFrom" class="form-control" placeholder="From">
+        <span asp-validation-for="YearFrom" class="text-danger"></span>
+        <input asp-for="YearTo" class="form-control" placeholder="To">
+        <span asp-validation-for="YearTo" class="text-danger"></span>
     </div>
-    <div class="col-md-4">
+@*    <div class="col-md-4">
         <label for="inputState" class="form-label">Genre</label>
         <select id="inputState" class="form-select">
             <option selected>Choose...</option>
             <option>...</option>
         </select>
     </div>
-    <div class="col-md-4" style="display:flex; align-items: center;">
+*@    <div class="col-md-4" style="display:flex; align-items: center;">
         <button type="submit" class="btn btn-primary" style="width:100%; padding:10px">Search</button>
     </div>
 </form>
@@ -49,12 +57,12 @@
         </tr>
     </thead>
     <tbody>
-        @for (int i = 0; i < 15; i++)
+        @foreach (Book book in Model.Books)
         {
             <tr>
                 <th scope="row" style="width: 20%"><img class="rounded table-img" src="https://book-ye.com.ua/upload/resize_cache/iblock/0c8/520_860_1/30607952_c4d8_11ed_8186_0050568ef5e6_f9440cf5_c4d8_11ed_8186_0050568ef5e6.jpg" alt="..." /></th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <td>@book.Name</td>
+                <td>@book.Author.Name</td>
                 <td class="table-20">
                     <div class="pt-0 border-top-0 bg-transparent">
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Go to book's page</a></div>

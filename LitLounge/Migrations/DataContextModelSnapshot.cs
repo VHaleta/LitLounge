@@ -57,6 +57,9 @@ namespace LitLounge.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Pages")
+                        .HasColumnType("int");
+
                     b.Property<int>("PublishingHouseId")
                         .HasColumnType("int");
 

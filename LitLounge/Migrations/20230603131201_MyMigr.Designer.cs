@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LitLounge.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230602134727_InitialMigration")]
+    [Migration("20230603131201_MyMigr")]
     partial class MyMigr
     {
         /// <inheritdoc />
@@ -59,6 +59,9 @@ namespace LitLounge.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Pages")
+                        .HasColumnType("int");
 
                     b.Property<int>("PublishingHouseId")
                         .HasColumnType("int");
