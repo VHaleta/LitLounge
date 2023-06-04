@@ -7,8 +7,8 @@
 
     ViewBag.CategoryNamesDropDownList = new List<SelectListItem>();
     ViewBag.CategoryNamesDropDownList.Add(new SelectListItem { Text = "Any", Value = "Any" });
-    for (int i = 0; i < ViewBag.Genres.Count; i++)
-        ViewBag.CategoryNamesDropDownList.Add(new SelectListItem { Text = ViewBag.Genres[i].Name, Value = ViewBag.Genres[i].Name });
+    for (int i = 0; i < ViewBag.Categories.Count; i++)
+        ViewBag.CategoryNamesDropDownList.Add(new SelectListItem { Text = ViewBag.Categories[i].Name, Value = ViewBag.Categories[i].Name });
 
 }
 @Html.Partial("_Navbar")
@@ -44,7 +44,7 @@
     </div>
     <div class="col-md-4">
         <label asp-for="Category" class="form-label">Category</label>
-        @Html.DropDownList("Genre", (IEnumerable<SelectListItem>)ViewBag.CategoryNamesDropDownList, new { @class = "form-select"})
+        @Html.DropDownList("Category", (IEnumerable<SelectListItem>)ViewBag.CategoryNamesDropDownList, new { @class = "form-select"})
     </div>
     <div class="col-md-4" style="display:flex; align-items: center;">
         <input type="submit" class="btn btn-primary" value="Search" style="width:100%; padding:10px" />
@@ -63,7 +63,7 @@
         @foreach (Book book in Model.Books)
         {
             <tr>
-                <th scope="row" style="width: 20%"><img class="rounded table-img" src="https://book-ye.com.ua/upload/resize_cache/iblock/0c8/520_860_1/30607952_c4d8_11ed_8186_0050568ef5e6_f9440cf5_c4d8_11ed_8186_0050568ef5e6.jpg" alt="..." /></th>
+                <th scope="row" style="width: 20%"><img class="rounded table-img" src="~/lib/bookcovers/@(book.Isbn).jpg"/></th>
                 <td>@book.Name</td>
                 <td>@book.Author.Name</td>
                 <td class="table-20">

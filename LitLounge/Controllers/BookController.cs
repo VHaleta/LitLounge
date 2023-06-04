@@ -16,7 +16,7 @@ namespace LitLounge.Controllers
         [HttpGet]
         public IActionResult Search(string? bookName, string? category)
         {
-            ViewBag.Genres = context.Categories.ToList();
+            ViewBag.Categories = context.Categories.ToList();
             SearchViewModel model = new SearchViewModel()
             {
                 BookName = bookName,
