@@ -40,14 +40,12 @@
                     <a class="nav-link" href="https://github.com/VHaleta/LitLounge">GitHub</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Popular genres</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Popular categories</a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Fantasy", "Search", "Book", new { genre = "Fantasy" }, new { @class="dropdown-item" })</li>
-                        <li>@Html.ActionLink("Adventure", "Search", "Book", new { genre = "Adventure" }, new { @class="dropdown-item" })</li>
-                        <li>@Html.ActionLink("Sci-Fi", "Search", "Book", new { genre = "Science Fiction" }, new { @class="dropdown-item" })</li>
-                        <li>@Html.ActionLink("Mystery", "Search", "Book", new { genre = "Mystery" }, new { @class="dropdown-item" })</li>
-                        <li>@Html.ActionLink("Romance", "Search", "Book", new { genre = "Romance" }, new { @class="dropdown-item" })</li>
-                        <li>@Html.ActionLink("Horror", "Search", "Book", new { genre = "Horror" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Fantasy", "Search", "Book", new { category = "Fantasy" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Biography", "Search", "Book", new { category = "Biography" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("History", "Search", "Book", new { category = "History" }, new { @class="dropdown-item" })</li>
+                        <li>@Html.ActionLink("Art and Design", "Search", "Book", new { category = "Art and Design" }, new { @class="dropdown-item" })</li>
                     </ul>
                 </li>
             </ul>

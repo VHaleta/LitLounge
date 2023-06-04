@@ -18,7 +18,7 @@ namespace LitLounge.ViewModels
         public int YearFrom { get; set; }
         [Range(0, int.MaxValue)]
         public int YearTo { get; set; }
-        public string? Genre { get; set; } = "Any";
+        public string? Category { get; set; } = "Any";
         public List<Book> Books { get; set; } = new List<Book>();
     }
 }

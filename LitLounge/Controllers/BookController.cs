@@ -14,13 +14,13 @@ namespace LitLounge.Controllers
         }
 
         [HttpGet]
-        public IActionResult Search(string? bookName, string? genre)
+        public IActionResult Search(string? bookName, string? category)
         {
-            ViewBag.Genres = context.Genres.ToList();
+            ViewBag.Genres = context.Categories.ToList();
             SearchViewModel model = new SearchViewModel()
             {
                 BookName = bookName,
-                Genre = genre ?? "Any"
+                Category = category ?? "Any"
             };
             return View(model);
         }
@@ -29,11 +29,11 @@ namespace LitLounge.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Search(SearchViewModel model)
         {
-            ViewBag.Genres = context.Genres.ToList();
+            ViewBag.Categories = context.Categories.ToList();
             if (!ModelState.IsValid)
                 return View(model);
 
-            List<Book> books = context.Books.Include(x => x.Genre).Include(x => x.Author).ToList();
+            List<Book> books = context.Books.Include(x => x.Category).Include(x => x.Author).ToList();
 
             if (!String.IsNullOrEmpty(model.BookName))
                 books = books.Where(x => x.Name.ToLower().Contains(model.BookName.ToLower())).ToList();
@@ -41,8 +41,8 @@ namespace LitLounge.Controllers
                 books = books.Where(x => x.Author.Name.ToLower().Contains(model.Author.ToLower())).ToList();
             if (!String.IsNullOrEmpty(model.ISBN))
                 books = books.Where(x => x.Isbn.Contains(model.ISBN)).ToList();
-            if (model.Genre != "Any")
-                books = books.Where(x => x.Genre.Name.Contains(model.Genre)).ToList();
+            if (model.Category != "Any")
+                books = books.Where(x => x.Category.Name.Contains(model.Category)).ToList();
             if (model.PagesFrom != 0)
                 books = books.Where(x => x.Pages > model.PagesFrom).ToList();
             if (model.PagesTo != 0)

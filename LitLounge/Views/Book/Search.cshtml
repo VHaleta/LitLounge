@@ -5,10 +5,10 @@
 @{
     ViewData["Title"] = "Search";
 
-    ViewBag.GenreNamesDropDownList = new List<SelectListItem>();
-    ViewBag.GenreNamesDropDownList.Add(new SelectListItem { Text = "Any", Value = "Any" });
+    ViewBag.CategoryNamesDropDownList = new List<SelectListItem>();
+    ViewBag.CategoryNamesDropDownList.Add(new SelectListItem { Text = "Any", Value = "Any" });
     for (int i = 0; i < ViewBag.Genres.Count; i++)
-        ViewBag.GenreNamesDropDownList.Add(new SelectListItem { Text = ViewBag.Genres[i].Name, Value = ViewBag.Genres[i].Name });
+        ViewBag.CategoryNamesDropDownList.Add(new SelectListItem { Text = ViewBag.Genres[i].Name, Value = ViewBag.Genres[i].Name });
 
 }
 @Html.Partial("_Navbar")
@@ -43,8 +43,8 @@
         <span asp-validation-for="YearTo" class="text-danger"></span>
     </div>
     <div class="col-md-4">
-        <label asp-for="Genre" class="form-label">Genre</label>
-        @Html.DropDownList("Genre", (IEnumerable<SelectListItem>)ViewBag.GenreNamesDropDownList, new { @class = "form-select"})
+        <label asp-for="Category" class="form-label">Category</label>
+        @Html.DropDownList("Genre", (IEnumerable<SelectListItem>)ViewBag.CategoryNamesDropDownList, new { @class = "form-select"})
     </div>
     <div class="col-md-4" style="display:flex; align-items: center;">
         <input type="submit" class="btn btn-primary" value="Search" style="width:100%; padding:10px" />

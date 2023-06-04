@@ -12,10 +12,10 @@ namespace LitLounge.Models
         public int PublishingYear { get; set; }
         [AllowNull]
         public string Description { get; set; }
-        public int GenreId { get; set; }
+        public int CategoryId { get; set; }
         public int AuthorId { get; set; }
         public int PublishingHouseId { get; set; }
-        public Genre Genre { get; set; }
+        public Category Category { get; set; }
         public Author Author { get; set; }
         public PublishingHouse PublishingHouse { get; set; }
     }

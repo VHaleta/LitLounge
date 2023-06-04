@@ -22,7 +22,7 @@ namespace LitLounge
                 new Author()
                 {
 //                    Id = 1,
-                    Name = "Author 1"
+                    Name = "Martin Amis"
                 },
                 new Author()
                 {
@@ -39,11 +39,11 @@ namespace LitLounge
             context.PublishingHouses.AddRange(
                 new PublishingHouse() {
 //                    Id = 1,
-                    Name = "Publishing House 1" 
+                    Name = "Random House"
                 },
                 new PublishingHouse() {
 //                    Id = 2,
-                    Name = "Publishing House 2"
+                    Name = "Everyman"
                 },
                 new PublishingHouse() {
 //                    Id = 3,
@@ -51,107 +51,63 @@ namespace LitLounge
                 }
                 );
             context.SaveChanges();
-            context.Genres.AddRange(
-                new Genre()
+            context.Categories.AddRange(
+                new Category()
                 {
 //                    Id = 1,
                     Name = "Fantasy"
                 },
-                new Genre()
+                new Category()
                 {
 //                    Id = 2,
-                    Name = "Adventure"
+                    Name = "Biography"
                 },
-                new Genre()
+                new Category()
                 {
 //                    Id = 3,
-                    Name = "Romance"
+                    Name = "History"
                 },
-                new Genre()
+                new Category()
                 {
 //                    Id = 4,
-                    Name = "Horror"
-                },
-                new Genre()
-                {
-//                    Id = 5,
-                    Name = "Mystery"
-                },
-                new Genre()
-                {
-//                    Id = 6,
-                    Name = "Science Fiction"
+                    Name = "Art and Design"
                 }
                 );
             context.SaveChanges();
             context.Books.AddRange(
                 new Book()
                 {
-                    Isbn = "978-3-16-148410-0",
-                    Name = "Book Name 1",
-                    Pages = 320,
-                    GenreId = 1,
-                    AuthorId = 2,
-                    PublishingHouseId = 1,
-                    PublishingYear = 2014,
-                    Description = "Some description of cool book. Very cool book."
-                },
-                new Book()
-                {
-                    Isbn = "978-5-16-148210-0",
-                    Name = "Book Name 2",
-                    Pages = 150,
-                    GenreId = 2,
+                    Isbn = "9780099461883",
+                    Name = "Money",
+                    Pages = 394,
+                    CategoryId = 1,
                     AuthorId = 1,
                     PublishingHouseId = 1,
-                    PublishingYear = 2016,
-                    Description = "Some description of cool book. Very cool book."
+                    PublishingYear = 2005,
+                    Description = "Rolling between London and New York he closes movie deals and spends feverishly, all the while grabbing everything he can to sate his massive appetites: alcohol, tobacco, pills, pornography and mountains of junk food.\r\n\r\nBut John's excesses haven't gone unnoted. Menaced by a phone stalker, his high-wire, hoggish lifestyle is about to bring him face-to-face with the secret of his success."
                 },
                 new Book()
                 {
-                    Isbn = "978-3-16-148440-0",
-                    Name = "Book Name 3",
-                    Pages = 100,
-                    GenreId = 1,
-                    AuthorId = 3,
-                    PublishingHouseId = 2,
-                    PublishingYear = 2000,
-                    Description = "Some description of cool book. Very cool book."
-                },
-                new Book()
-                {
-                    Isbn = "978-3-16-448410-3",
-                    Name = "Book Name 4",
-                    Pages = 243,
-                    GenreId = 4,
-                    AuthorId = 3,
-                    PublishingHouseId = 3,
-                    PublishingYear = 2019,
-                    Description = "Some description of cool book. Very cool book."
-                },
-                new Book()
-                {
-                    Isbn = "978-8-96-148410-0",
-                    Name = "Book Name 5",
-                    Pages = 370,
-                    GenreId = 5,
-                    AuthorId = 2,
-                    PublishingHouseId = 3,
-                    PublishingYear = 2014,
-                    Description = "Some description of cool book. Very cool book."
-                },
-                new Book()
-                {
-                    Isbn = "978-3-16-149910-0",
-                    Name = "Book Name 6",
-                    Pages = 535,
-                    GenreId = 2,
-                    AuthorId = 2,
+                    Isbn = "9780099455424",
+                    Name = "The Rachel Papers",
+                    Pages = 219,
+                    CategoryId = 1,
+                    AuthorId = 1,
                     PublishingHouseId = 1,
-                    PublishingYear = 2013,
-                    Description = "Some description of cool book. Very cool book."
-                }
-                );
+                    PublishingYear = 2003,
+                    Description = "Precociously intelligent, mercilessly manipulative and highly sexed, Charles devotes the last of his teenage years to bedding girls and evading the half-arsed overtures of his distant parents. That is, until, he meets the aloof, wildly unattainable, Rachel.\r\n\r\nAs Charles's twentieth birthday - and the Oxford entrance exams - loom, his plans for seducing Rachel will draw him into a private collection of obsessional notes and observations: the eponymous 'Rachel Papers'."
+                },
+                new Book()
+                {
+                    Isbn = "9781841593623",
+                    Name = "London Fields - Everyman's Library",
+                    Pages = 509,
+                    CategoryId = 1,
+                    AuthorId = 1,
+                    PublishingHouseId = 2,
+                    PublishingYear = 2014,
+                    Description = "London Fields is a brilliant, funny and multi-layered novel. It is a book in which the narrator, Samson Young, enters the Black Cross, a thoroughly undesirable public house, and finds the main players of his drama assembled, just waiting to begin. It's a gift of a story from real life...all Samson has to do is write it as it happens."
+                });
             context.SaveChanges();
         }
     }

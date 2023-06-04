@@ -2,7 +2,7 @@
 
 namespace LitLounge.Models
 {
-    public class Genre
+    public class Category
     {
         [Key]
         public int Id { get; set; }
