@@ -13,7 +13,23 @@ namespace LitLounge.Controllers
             this.context = context;
         }
 
+        public IActionResult Book(string isbn)
+        {
+            var book = context.Books
+                .Include(x => x.Category)
+                .Include(x => x.PublishingHouse)
+                .Include(x => x.Author)
+                .FirstOrDefault(x => x.Isbn == isbn);
+            if (book is not null)
+            {
+                ViewBag.Book = book;
+                return View();
+            }
+            return View("NotFound");
+        }
+
         [HttpGet]
+        [Route("~/Book/Search")]
         public IActionResult Search(string? bookName, string? category)
         {
             ViewBag.Categories = context.Categories.ToList();

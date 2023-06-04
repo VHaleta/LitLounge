@@ -35,7 +35,9 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Go to book's page</a></div>
+                            <div class="text-center">
+                                @Html.ActionLink("Go to book's page", "Book", "Book", new { isbn = book.Isbn }, new { @class="btn btn-outline-dark mt-auto" })
+                            </div>
                         </div>
                     </div>
                 </div>

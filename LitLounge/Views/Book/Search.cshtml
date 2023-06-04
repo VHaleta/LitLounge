@@ -63,12 +63,14 @@
         @foreach (Book book in Model.Books)
         {
             <tr>
-                <th scope="row" style="width: 20%"><img class="rounded table-img" src="~/lib/bookcovers/@(book.Isbn).jpg"/></th>
+                <th scope="row" style="width: 20%"><img class="rounded table-img" src="~/lib/bookcovers/@(book.Isbn).jpg" /></th>
                 <td>@book.Name</td>
                 <td>@book.Author.Name</td>
                 <td class="table-20">
                     <div class="pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Go to book's page</a></div>
+                        <div class="text-center">
+                            @Html.ActionLink("Go to book's page", "Book", "Book", new { isbn = book.Isbn }, new { @class="btn btn-outline-dark mt-auto" })
+                        </div>
                     </div>
                 </td>
             </tr>

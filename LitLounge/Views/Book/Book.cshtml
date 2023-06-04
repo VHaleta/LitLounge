@@ -2,24 +2,25 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = ViewBag.Book.Name;
 }
 @Html.Partial("_Navbar")
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://book-ye.com.ua/upload/resize_cache/iblock/0c8/520_860_1/30607952_c4d8_11ed_8186_0050568ef5e6_f9440cf5_c4d8_11ed_8186_0050568ef5e6.jpg" alt="..." /></div>
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="~/lib/bookcovers/@(ViewBag.Book.Isbn).jpg" /></div>
             <div class="col-md-6">
-                <div class="small mb-1">ISBN: ISBN Code</div>
-                <h1 class="display-5 fw-bolder">Book's name</h1><p> </p>
+                <div class="small mb-1">ISBN: @ViewBag.Book.Isbn</div>
+                <h1 class="display-5 fw-bolder">@ViewBag.Book.Name</h1><p> </p>
                 <div class="fs-5 mb-5">
-                    <h5>Author: Some Author</h5>
-                    <h5>Category: Some Category</h5>
-                    <h5>Page count: 150</h5>
-                    <h5>Publishing: Some Publishing</h5>
-                    <h5>Publishing year: 2020</h5>
+                    <h5>Author: @ViewBag.Book.Author.Name</h5>
+                    <h5>Category: @ViewBag.Book.Category.Name</h5>
+                    <h5>Page count: @ViewBag.Book.Pages</h5>
+                    <h5>Publishing: @ViewBag.Book.PublishingHouse.Name</h5>
+                    <h5>Publishing year: @ViewBag.Book.PublishingYear</h5>
                 </div>
-                    <h5>Description: </h5>                
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                    <h5>Description: </h5>
+                <p class="lead">@ViewBag.Book.Description</p>
             </div>
         </div>
     </div>
