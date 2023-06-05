@@ -38,7 +38,7 @@ namespace LitLounge.Controllers
                 BookName = bookName,
                 Category = category ?? "Any"
             };
-            return View(model);
+            return Search(model);
         }
 
         [HttpPost]
